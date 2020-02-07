@@ -1,0 +1,12 @@
+
+1 this module is equipped with a total of 6 Arduino display test code and 6 SD card test code.
+
+2 the test code for UNO and Mega2560, are tested in the corresponding position in line, no need for wiring.
+
+3.Example01-Simple test is the most simple test, does not need to rely on the installation base, can be directly Shuabing RGB test module hardware directly.
+
+4.Example02~06 all need to rely on the library, please first libraries Install inside the library to copy to the Arduino library path.
+
+5 expansion routines Exten Example SDCard and Example05-ShowBMP are required to use the SD card, SD card involved in the test program only supports UNO series, does not support Mega2560.
+
+6 the IDE version of this test program is: arduino-1.6.2-windows, if the user is using a version of less than 1.62, there may be a compile error, please replace the new version.
