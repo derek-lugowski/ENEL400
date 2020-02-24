@@ -4,7 +4,9 @@ Class Project for ENEL400
 instal git on computer (command line stuff, look it up)
 
 run in appropriate directory:
+
 git init
+
 git clone https://github.com/derek-lugowski/ENEL400.git
 
 git pull
