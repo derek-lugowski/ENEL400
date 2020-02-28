@@ -5,11 +5,7 @@ instal git on computer (command line stuff, look it up)
 
 run in appropriate directory:
 
-git init
-
 git clone https://github.com/derek-lugowski/ENEL400.git
-
-git pull
 
 //this should work to get the repository on your computer. make adjustments as necessary.
 
