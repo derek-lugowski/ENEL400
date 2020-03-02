@@ -1,7 +1,7 @@
 //Snake.cpp
 // 320 x 480 screen size 
 
-#include GameObject.h
+#include "GameObject.h"
 // need to include drawing library
 
 //constant for snake colour??
@@ -24,47 +24,47 @@
 		int direction = 0; // initially moving left
 	}
 		
-	void setx(int xnew)
+	void GameObject::setx(int xnew)
 	{
 		int x = xnew;
 	}
 	
-	int getx()
+	int GameObject::getx()
 	{
 		return x;
 	}
 		
-	void sety(int ynew)
+	void GameObject::sety(int ynew)
 	{
 		int y = ynew;
 	}
 	
-	int gety()
+	int GameObject::gety()
 	{
 		return y;
 	}
 		
-	int getwidth()
+	int GameObject::getwidth()
 	{
 		return width;
 	}
 		
-	int getheight()
+	int GameObject::getheight()
 	{
 		return height;
 	}
 	
-	void setdirection(int newdir);
+	void GameObject::setdirection(int newdir)
 	{
 		direction = newdir;
 	}
 	
-	int getdirection()
+	int GameObject::getdirection()
 	{
 		return direction;
 	}
 	
-	void movesnake(void)
+	void GameObject::movesnake(void)
 	{
 		if(direction = 0){
 			x = x - 1; //moves snake 10 pixels left
@@ -80,7 +80,11 @@
 		}
 	}
 	
-	void drawsnake(int colour)
+	void GameObject::drawsnake(int colour)
 	{
 		//code to draw a rectangle of height and length
+	}
+	
+	int main(){	
+		return 1;
 	}

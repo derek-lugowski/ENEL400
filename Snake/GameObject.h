@@ -28,4 +28,4 @@ class GameObject{
 		void movesnake();
 		
 		void drawsnake(int colour); // not sure if colour is an int???
-}
+};
