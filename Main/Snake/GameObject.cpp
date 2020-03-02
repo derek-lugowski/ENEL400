@@ -84,7 +84,3 @@
 	{
 		//code to draw a rectangle of height and length
 	}
-	
-	int main(){	
-		return 1;
-	}

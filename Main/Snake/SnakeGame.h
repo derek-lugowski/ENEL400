@@ -1,13 +1,15 @@
 // SnakeGame.h
 
 // In function handles f is for food objects and s is for snake s objects
-
 #include "GameObject.h"
 
 class SnakeGame{
+	private:
+		GameObject snake[100];
+		GameObject food;
 	
 	public:
-		void moveSnake();
+		void moveSnake(int xcd, int ycd, int newdir, GameObject *s);
 	
 		void collisionDetection(GameObject *s); //checks collisions with walls and snake body
 	
