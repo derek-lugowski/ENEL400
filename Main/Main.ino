@@ -1,5 +1,9 @@
-#include "Controller/Controller.cpp"
-#include "Snake/SnakeGame.h"
+#include <Test.h>
+#include <GameObject.h>
+//#include <SnakeGame.h>
+#include <Controller.h>
+
+
 #include "Adafruit_GFX.h"
 #include "MCUFRIEND_kbv.h"
 MCUFRIEND_kbv tft; // initialize tft object

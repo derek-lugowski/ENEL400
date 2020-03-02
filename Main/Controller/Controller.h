@@ -9,7 +9,8 @@
  * May not update right away after button pressing due to debouncing.
  * 
  */
-
+#ifndef CONTROLLER_H_INCLUDED
+#define CONTROLLER_H_INCLUDED
 class Controller{
   private:
     int buttons[6];
@@ -26,3 +27,6 @@ class Controller{
     
     void start();
 };
+
+
+#endif
