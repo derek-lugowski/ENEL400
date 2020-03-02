@@ -1,4 +1,4 @@
-//#include "SnakeGame.h"
+#include "Snake/SnakeGame.h"
 #include "Adafruit_GFX.h"
 #include "MCUFRIEND_kbv.h"
 MCUFRIEND_kbv tft; // initialize tft object

@@ -2,7 +2,7 @@
 
 // In function handles f is for food objects and s is for snake s objects
 
-#include GameObject.h
+#include "GameObject.h"
 
 class SnakeGame{
 	
@@ -15,7 +15,7 @@ class SnakeGame{
 	
 		void createFood(GameObject f);
 		
-		void drawScreen(GameObject s*, GameObject f);
+		void drawScreen(GameObject *s, GameObject f);
 		
 		void handleInputs();
 		
@@ -24,5 +24,5 @@ class SnakeGame{
 		void gamePlay();
 		
 		void gameEnd(); // handles losing 
-}
+};
 
