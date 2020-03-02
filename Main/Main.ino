@@ -1,3 +1,4 @@
+#include "Controller/Controller.cpp"
 #include "Snake/SnakeGame.h"
 #include "Adafruit_GFX.h"
 #include "MCUFRIEND_kbv.h"
@@ -24,9 +25,12 @@ MCUFRIEND_kbv tft; // initialize tft object
 #define PINK 0xF81F
 
 
+Controller controller(23, 25, 27, 29, 31, 33);
+
 void setup() {
   Serial.begin(9600); // start communication with serial port
-  
+  controller.start();
+  controller.read_buttons();
   
   uint16_t ID = tft.readID(); // getting id from screen
   tft.begin(ID);
@@ -40,8 +44,6 @@ void setup() {
 }
 
 void loop() {
-  //tft.drawFastVLine(160, 240, 10, BLACK);
-  tft.fillRect(100, 200, 10, 100, BLACK);
-  tft.fillRect(110, 200, 10, 10, BLACK);
-
+  
+  
 }
