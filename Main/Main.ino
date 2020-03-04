@@ -1,13 +1,14 @@
 #include <Test.h>
-#include <GameObject.h>
+//#include <GameObject.h>
 //#include <SnakeGame.h>
+
 #include <Controller.h>
+Controller controller;
 
-
-#include "Adafruit_GFX.h"
+//#include "Adafruit_GFX.h"
 #include "MCUFRIEND_kbv.h"
 MCUFRIEND_kbv tft; // initialize tft object
-
+/*
 #define BLACK 0x0000
 #define NAVY 0x000F
 #define DARKGREEN 0x03E0
@@ -27,27 +28,30 @@ MCUFRIEND_kbv tft; // initialize tft object
 #define ORANGE 0xFD20
 #define GREENYELLOW 0xAFE5
 #define PINK 0xF81F
+*/
 
 
-Controller controller(23, 25, 27, 29, 31, 33);
-
+//controller.start();
 void setup() {
   Serial.begin(9600); // start communication with serial port
-  controller.start();
+  
+  int button_pins[] = {33, 31, 29, 27, 25, 23};
+  controller.start(button_pins);
   controller.read_buttons();
   
   uint16_t ID = tft.readID(); // getting id from screen
   tft.begin(ID);
+  
   //tft.fillScreen(DARKGREEN);
-  int16_t w = tft.width(); // get width and length from tft object and print to serial port
-  int16_t h = tft.height();
-  Serial.print("width is: ");
-  Serial.println(w);
-  Serial.println(h);
-  tft.fillScreen(RED);
+//  int16_t w = tft.width(); // get width and length from tft object and print to serial port
+//  int16_t h = tft.height();
+//  Serial.print("width is: "); 
+//  Serial.println(w); // 320
+//  Serial.println(h); // 480
+//  tft.fillScreen(RED);
 }
 
 void loop() {
-  
+  Test(controller, tft);
   
 }
