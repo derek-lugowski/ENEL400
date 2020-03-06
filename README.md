@@ -11,6 +11,8 @@ git clone https://github.com/derek-lugowski/ENEL400.git
 
 git commands to know:
 
+git status // gives you the status of the local directory. This will let you know if you have untracked files (not yet added to repository) or if you have changed something in a tracked file it will let you know if you need to commit it. This will help you know what commands you need to run sometimes.
+
 git pull // this will pull all changes from the online repository
 
 git push // this will push all changes commited in local repository to online repository
