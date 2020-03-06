@@ -2,29 +2,26 @@
 
 // In function handles f is for food objects and s is for snake s objects
 #include "GameObject.h"
+#include <deque>
+using std::deque;
 
-class SnakeGame{
-	private:
-		GameObject snake[100];
-		GameObject food;
+		void moveSnake(int newdir, deque <GameObject> s);
 	
-	public:
-		void moveSnake(int xcd, int ycd, int newdir, GameObject *s);
-	
-		void collisionDetection(GameObject *s); //checks collisions with walls and snake body
-	
-		void eating(GameObject *s, GameObject f); //checks for collision with food and updates score
+		int collisionSelf(deque <GameObject> s); //checks collisions with snake body. returns 1 if collision
+		
+		int collisionWall(deque <GameObject> s);//checks collisions with walls. returns 1 if collision
+		
+		int eating(deque <GameObject> s, GameObject f); //checks for collision with food and updates score
 	
 		void createFood(GameObject f);
 		
-		void drawScreen(GameObject *s, GameObject f);
+		void drawScreen(deque <GameObject> s, GameObject f);
 		
-		void handleInputs();
+		int handleInputs(); //checks button input and returns an int direction for snake 0: left, 1: right, 2: down, 3: up 
 		
-		void gameSetup();
+		void gameSetup(deque <GameObject> s, GameObject f);
 		
-		void gamePlay();
+		void gamePlay(deque <GameObject> s, GameObject f);
 		
 		void gameEnd(); // handles losing 
-};
 
