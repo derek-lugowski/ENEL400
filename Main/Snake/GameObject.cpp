@@ -8,25 +8,25 @@
 
 	GameObject::GameObject()
 	{
-		int x = 24; //snakes starts in the middle of screen as default 
-		int y = 16;
-		int width = 1;
-		int height = 1;
-		int direction = 0; // initially moving left
+		x = 24; //snakes starts in the middle of screen as default 
+		y = 16;
+		width = 1;
+		height = 1;
+		direction = 0; // initially moving left
 	}	
 	
 	GameObject::GameObject(int startX, int startY)
 	{
-		int x = startX;
-		int y = startY;
-		int width = 1;
-		int height = 1;
-		int direction = 0; // initially moving left
+		x = startX;
+		y = startY;
+		width = 1;
+		height = 1;
+		direction = 0; // initially moving left
 	}
 		
 	void GameObject::setx(int xnew)
 	{
-		int x = xnew;
+		x = xnew;
 	}
 	
 	int GameObject::getx()
@@ -36,7 +36,7 @@
 		
 	void GameObject::sety(int ynew)
 	{
-		int y = ynew;
+		y = ynew;
 	}
 	
 	int GameObject::gety()
