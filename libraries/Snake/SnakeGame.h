@@ -1,6 +1,9 @@
 // SnakeGame.h
 
 // In function handles f is for food objects and s is for snake s objects
+#ifndef SNAKE_GAME_INCLUDED
+#define SNAKE_GAME_INCLUDED
+
 #include "GameObject.h"
 #include <deque>
 using std::deque;
@@ -27,3 +30,4 @@ using std::deque;
 		
 		void gameEnd(); // handles losing 
 
+#endif
