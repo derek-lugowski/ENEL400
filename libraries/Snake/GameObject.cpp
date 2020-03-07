@@ -12,7 +12,7 @@
 		y = 16;
 		width = 1;
 		height = 1;
-		direction = 0; // initially moving left
+		//direction = 0; // initially moving left
 	}	
 	
 	GameObject::GameObject(int startX, int startY)
@@ -21,7 +21,7 @@
 		y = startY;
 		width = 1;
 		height = 1;
-		direction = 0; // initially moving left
+		//direction = 0; // initially moving left
 	}
 		
 	void GameObject::setx(int xnew)
@@ -54,7 +54,7 @@
 		return height;
 	}
 	
-	void GameObject::setdirection(int newdir)
+/*	void GameObject::setdirection(int newdir)
 	{
 		direction = newdir;
 	}
@@ -78,9 +78,9 @@
 			x = x;
 			y = y;
 		}
-	}
+	} */
 	
-	void GameObject::drawsnake(int colour)
+	void GameObject::draw(int colour/*,MCUFRIEND_kbv tft*/)
 	{
 		//code to draw a rectangle of height and length
 	}

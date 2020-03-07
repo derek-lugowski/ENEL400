@@ -4,27 +4,35 @@
 //#include "GameObject.h"
 #include <deque>
 #include <stdlib.h>\
-#include <controler.h>
-#include <Arduino.h>
+//#include <controler.h>
+//#include <Arduino.h>
 
 using std::deque;
 
 int score;
 
-void moveSnake(int newdir, deque <GameObject> s){
+GameObject moveSnake(int newdir, deque <GameObject> s){
+	GameObject tempback; // creates a temporary object to store the data from the back of the snake so that it can be removed from screen
 	if(newdir = 0){
 		s.push_front(GameObject(s.front().getx() - 1,s.front().gety())); // adds new block to the left of the snake
+		tempback = s.back();
 		s.pop_back(); //removes last block
 	}else if(newdir = 1){
 		s.push_front(GameObject(s.front().getx() + 1,s.front().gety())); // adds new block to the right of the snake
+		tempback = s.back();
 		s.pop_back();
 	}else if(newdir = 2){
 		s.push_front(GameObject(s.front().getx(),s.front().gety()-1)); // adds new block to down side of the snake
+		tempback = s.back();
 		s.pop_back();
 	}else if(newdir = 3){
 		s.push_front(GameObject(s.front().getx(),s.front().gety()+1)); // adds new block to up side of the snake
+		tempback = s.back();
 		s.pop_back();
-	}//need an else??
+	}else{
+		tempback = GameObject(-1,-1); // creates a random object offscreen;
+	}
+	return tempback;
 }
 	
 int collisionSelf(deque <GameObject> s){
@@ -34,7 +42,7 @@ int collisionSelf(deque <GameObject> s){
 			return 1;
 		}
 		it++; // points to the next element in snake body
-	}while((it != s.end());
+	}while(it != s.end());
 	return 0;
 }
 
@@ -46,7 +54,7 @@ int collisionWall(deque <GameObject> s){
 	}
 }
 	
-int eating(deque <GameObject> s, GameObject f, int dir){
+void eating(deque <GameObject> s, GameObject f, int dir){
 	if(s.back().getx() == f.getx() && s.back().gety() == f.gety()){//checks to see if head is in the same place as food
 		score += 10;
 		if(dir = 0){
@@ -58,10 +66,8 @@ int eating(deque <GameObject> s, GameObject f, int dir){
 		}else if(dir = 3){
 			s.push_front(GameObject(s.front().getx(),s.front().gety()+1)); // adds new block to up side of the snake
 		}
-	return 1;
+	createFood(f);
 	}
-	
-	return 0;
 }
 	
 void createFood(GameObject f){ // create food at a random new x and y position
@@ -69,21 +75,45 @@ void createFood(GameObject f){ // create food at a random new x and y position
 	f.sety(rand()%320 + 1);
 }
 		
-void drawScreen(deque <GameObject> s, GameObject f){
+void drawScreen(deque <GameObject> s, GameObject f/*,MCUFRIEND_kbv tft*/){
+	//needs commands to draw screen layout and snake and food
+	//draw score 
+	s.front().draw(2390); //draws intial snake (1 rectangle) put in a random colour so please change also add screen
+	f.draw(789); //put in a random colour so please change also add screen as a variable 
+}
+
+void updateScreen(deque <GameObject> s, GameObject f, GameObject tail/*,MCUFRIEND_kbv tft*/){
+	//draws new elements of snake and updates food location 
+	//for food check whether location changed and then draw
+	//update score
+	s.front().draw(329408);//draws new head of snake put in a random colour so please change also add screen
+	int x = tail.getx(); // use the following parameters to draw screen colour over where the last block of the snake was
+	int y = tail.gety();
+	int width = tail.getwidth();
+	int height = tail.getheight();
 }
 		
 int handleInputs(){
+	//check if buttons are pressed and then return direction 0: left, 1: right, 2: down, 3: up
 }
 		
 void gameSetup(deque <GameObject> s, GameObject f){
-	drawScreen();
-	
+	drawScreen(s,f);
+	score = 0;
 }
 		
 void gamePlay(deque <GameObject> s, GameObject f){
+	int direction = handleInputs();
+	GameObject removedBlock = moveSnake(direction,s);
+	if(collisionSelf(s) || collisionWall(s)){
+		gameEnd();
+	}
+	eating(s,f,direction);
+	updateScreen(s,f, removedBlock);
 }
 		
-void gameEnd(deque <GameObject> s, GameObject f){
+void gameEnd(){
+	//exits game loop and goes back to menu, maybe show you lose and final score?? 
 }
 
 int main(void){

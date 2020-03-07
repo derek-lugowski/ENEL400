@@ -6,7 +6,6 @@ class GameObject{
 		int y; //top most position for square/rec or centre position for circle
 		int width; // number of pixels for the length of each block in the snake
 		int height; // number of pixels for the width of each block in the snake (same as width of snake)
-		int direction; // way the snake is moving, 0: left, 1: right, 2: down, 3: up 
 	
 	public:
 		GameObject();
@@ -22,10 +21,8 @@ class GameObject{
 		
 		int getheight();
 		
-		void setdirection(int newdir);
-		int getdirection();
+		//void setdirection(int newdir);
+		//int getdirection();
 		
-		void movesnake();
-		
-		void drawsnake(int colour); // not sure if colour is an int???
+		void draw(int colour/*,MCUFRIEND_kbv tft*/); // not sure if colour is an int???
 };

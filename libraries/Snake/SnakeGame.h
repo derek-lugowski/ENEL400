@@ -5,7 +5,7 @@
 #include <deque>
 using std::deque;
 
-		void moveSnake(int newdir, deque <GameObject> s);
+		GameObject moveSnake(int newdir, deque <GameObject> s);
 	
 		int collisionSelf(deque <GameObject> s); //checks collisions with snake body. returns 1 if collision
 		
@@ -15,7 +15,9 @@ using std::deque;
 	
 		void createFood(GameObject f);
 		
-		void drawScreen(deque <GameObject> s, GameObject f);
+		void drawScreen(deque <GameObject> s, GameObject f/*, MCUFRIEND_kbv tft*/);
+		
+		void updateScreen(deque <GameObject> s, GameObject f, GameObject tail/*,MCUFRIEND_kbv tft*/);
 		
 		int handleInputs(); //checks button input and returns an int direction for snake 0: left, 1: right, 2: down, 3: up 
 		
