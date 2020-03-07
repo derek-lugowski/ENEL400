@@ -8,6 +8,8 @@
 #include <deque>
 using std::deque;
 
+    void SnakeGame(Controller controller, MCUFRIEND_kbv tft);
+
 		GameObject moveSnake(int newdir, deque <GameObject> s);
 	
 		int collisionSelf(deque <GameObject> s); //checks collisions with snake body. returns 1 if collision

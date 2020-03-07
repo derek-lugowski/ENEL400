@@ -1,4 +1,8 @@
 //GameObject.h
+#ifndef GAME_OBJECT_INCLUDED
+#define GAME_OBJECT_INCLUDED
+
+#include "MCUFRIEND_kbv.h"
 
 class GameObject{
 	private:
@@ -24,5 +28,8 @@ class GameObject{
 		//void setdirection(int newdir);
 		//int getdirection();
 		
-		void draw(int colour/*,MCUFRIEND_kbv tft*/); // not sure if colour is an int???
+		void draw(int colour, MCUFRIEND_kbv tft); // not sure if colour is an int???
 };
+
+
+#endif

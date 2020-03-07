@@ -2,7 +2,8 @@
 // 320 x 480 screen size 
 
 #include "GameObject.h"
-// need to include drawing library
+#include "MCUFRIEND_kbv.h"
+
 
 //constant for snake colour??
 
@@ -80,7 +81,7 @@
 		}
 	} */
 	
-	void GameObject::draw(int colour/*,MCUFRIEND_kbv tft*/)
+	void GameObject::draw(int colour, MCUFRIEND_kbv tft)
 	{
-		//code to draw a rectangle of height and length
+      tft.fillRect(x,y,width,height, colour);
 	}
