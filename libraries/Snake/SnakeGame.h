@@ -8,7 +8,7 @@
 #include <deque>
 using std::deque;
 
-    void SnakeGame(Controller controller, MCUFRIEND_kbv tft);
+    void SnakeGame(Controller controller, MCUFRIEND_kbv tft); // Derek added this as the main function that runs the game loop.
     
     
 
@@ -26,7 +26,7 @@ using std::deque;
 		
 		void updateScreen(deque <GameObject> s, GameObject f, GameObject tail/*,MCUFRIEND_kbv tft*/);
 		
-		int handleInputs(); //checks button input and returns an int direction for snake 0: left, 1: right, 2: down, 3: up 
+		int handleInputs(Controller controller); //checks button input and returns an int direction for snake 0: left, 1: right, 2: down, 3: up 
 		
 		void gameSetup(deque <GameObject> s, GameObject f);
 		

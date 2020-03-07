@@ -5,7 +5,7 @@
 #include <deque>
 #include <stdlib.h>\
 //#include <controler.h>
-//#include <Arduino.h>
+#include <Arduino.h>
 
 using std::deque;
 
@@ -14,8 +14,26 @@ int score;
 
 void SnakeGame(Controller controller, MCUFRIEND_kbv tft) // This is the main game function that runs the game loop. This will be called from the menu code.
 {
+  int* button_states[6];
+  button_states = controller.read_inputs();
   
+  //drawScreen(); //not sure what to pass to this function. uncomment when fixed.
+  
+  
+  while(1)
+  {
+    
+    
+    
+    
+    
+    
+    if(gameEnd()) {break;} // displays end screen and prompts user to play again or exit game.
+  }
 }
+
+
+
 
 
 GameObject moveSnake(int newdir, deque <GameObject> s){
@@ -100,8 +118,19 @@ void updateScreen(deque <GameObject> s, GameObject f, GameObject tail/*,MCUFRIEN
 	int height = tail.getheight();
 }
 		
-int handleInputs(){
-	//check if buttons are pressed and then return direction 0: left, 1: right, 2: down, 3: up
+int handleInputs(Controller controller){ // reads inputs from buttons and outputs direction. Button priority in decending order: U, D, L, R. if no buttons are pressed returns 4
+  int* button_states = controller.read_inputs();
+  if(button_states[2] == HIGH)
+    return 3;
+  else if(button_states[3] == HIGH)
+    return 2;
+  else if(button_states[4] == HIGH)
+    return 0;
+  else if(button_states[5] == HIGH)
+    return 1;
+  else
+    return 4;
+	//check if buttons are pressed and then return direction 0: left, 1: right, 2: down, 3: up; if no buttons are pressed, returns 4.
 }
 		
 void gameSetup(deque <GameObject> s, GameObject f){
@@ -110,7 +139,7 @@ void gameSetup(deque <GameObject> s, GameObject f){
 }
 		
 void gamePlay(deque <GameObject> s, GameObject f){
-	int direction = handleInputs();
+	int direction = handleInputs();                   // need to account for when no buttons are pressed. -Derek
 	GameObject removedBlock = moveSnake(direction,s);
 	if(collisionSelf(s) || collisionWall(s)){
 		gameEnd();
@@ -119,8 +148,10 @@ void gamePlay(deque <GameObject> s, GameObject f){
 	updateScreen(s,f, removedBlock);
 }
 		
-void gameEnd(){
-	//exits game loop and goes back to menu, maybe show you lose and final score?? 
+int gameEnd(){ // return '1' causes game to exit to main menu. return '0' causes game to restart. need to add some end game screen.
+  
+  
+	return 1;//exits game loop and goes back to menu, maybe show you lose and final score?? 
 }
 
 int main(void){
