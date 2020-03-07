@@ -1,7 +1,7 @@
 //Snake.cpp
 // 320 x 480 screen size 
 
-#include "GameObject.h"
+#include <GameObject.h>
 #include "MCUFRIEND_kbv.h"
 
 

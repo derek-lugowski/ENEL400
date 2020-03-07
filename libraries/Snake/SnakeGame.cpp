@@ -11,6 +11,13 @@ using std::deque;
 
 int score;
 
+
+void SnakeGame(Controller controller, MCUFRIEND_kbv tft) // This is the main game function that runs the game loop. This will be called from the menu code.
+{
+  
+}
+
+
 GameObject moveSnake(int newdir, deque <GameObject> s){
 	GameObject tempback; // creates a temporary object to store the data from the back of the snake so that it can be removed from screen
 	if(newdir = 0){
