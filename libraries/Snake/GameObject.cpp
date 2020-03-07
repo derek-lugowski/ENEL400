@@ -81,7 +81,7 @@
 		}
 	} */
 	
-	void GameObject::draw(int colour, MCUFRIEND_kbv tft)
+	void GameObject::draw(int colour, MCUFRIEND_kbv tft) // Derek filled this in. Have not tested it.
 	{
       tft.fillRect(x,y,width,height, colour);
 	}
