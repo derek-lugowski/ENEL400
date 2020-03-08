@@ -43,12 +43,13 @@ void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for 
   
   while(1) // main game loop
   {
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 6; i++) // for loop copies the last controller state to previous_button_states.
     {
       previous_button_states[i] = button_states[i];
     }
-    button_states = controller.read_buttons();
-    box.move(previous_button_states, button_states, tft);
+    button_states = controller.read_buttons(); // update buttons_states
+    
+    box.resolve_inputs(previous_button_states, button_states, tft); // moves the selector on the screen
     //handle clicking inputs
     
     //if(1){break;}

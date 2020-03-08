@@ -18,9 +18,9 @@ class MineBox
     
     void draw(int color, MCUFRIEND_kbv tft);
     
-    void move(int* previous_buttons, int* buttons, MCUFRIEND_kbv);
+    void resolve_inputs(int* previous_buttons, int* buttons, MCUFRIEND_kbv);
     
-    void move_draw(int i, MCUFRIEND_kbv tft);
+    void move(int i, MCUFRIEND_kbv tft);
 
 };
 

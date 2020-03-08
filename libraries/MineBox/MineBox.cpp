@@ -37,13 +37,13 @@ void MineBox::draw(int color, MCUFRIEND_kbv tft)
 }
 
 
-void MineBox::move(int* previous_buttons, int* buttons, MCUFRIEND_kbv tft) //controller order: A, B, U, D, L, R
+void MineBox::resolve_inputs(int* previous_buttons, int* buttons, MCUFRIEND_kbv tft) //controller order: A, B, U, D, L, R
 {
   for(int i = 0; i < 6; i++)
   {
     if(previous_buttons[i] != buttons[i] && buttons[i] == LOW)
     {
-      move_draw(i, tft);
+      move(i, tft);
       
       //draw(BLACK, tft);
       //y--;
@@ -53,30 +53,42 @@ void MineBox::move(int* previous_buttons, int* buttons, MCUFRIEND_kbv tft) //con
 }
 
 
-void MineBox::move_draw(int i, MCUFRIEND_kbv tft)
+void MineBox::move(int i, MCUFRIEND_kbv tft)
 {
   if(i == 2)
   {
-    draw(BLACK, tft);
-    y--;
-    draw(WHITE, tft);
+    if(y>0)
+    {
+      draw(BLACK, tft);
+      y--;
+      draw(WHITE, tft);
+    }
   }
   else if(i == 3)
   {
-    draw(BLACK, tft);
-    y++;
-    draw(WHITE, tft);
+    if(y<15)
+    {
+      draw(BLACK, tft);
+      y++;
+      draw(WHITE, tft);
+    }
   }
   else if(i == 4)
   {
-    draw(BLACK, tft);
-    x--;
-    draw(WHITE, tft);
+    if(x>0)
+    {
+      draw(BLACK, tft);
+      x--;
+      draw(WHITE, tft);
+    }
   }
   else if(i == 5)
   {
-    draw(BLACK, tft);
-    x++;
-    draw(WHITE, tft);
+    if(x< 23)
+    {
+      draw(BLACK, tft);
+      x++;
+      draw(WHITE, tft);
+  }
   }
 }
