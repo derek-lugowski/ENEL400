@@ -12,7 +12,7 @@ Controller::Controller()
 }
 
 Controller::Controller(int A, int B, int U, int D, int L, int R)
-{
+{//probably need a 'for' loop to make this work. will look into this later. -Derek
   int buttons[6] = {A, B, U, D, L, R};
   int buttons_state [6] = {LOW, LOW, LOW, LOW, LOW, LOW};
   int buttons_last_read[6] = {LOW, LOW, LOW, LOW, LOW, LOW};
