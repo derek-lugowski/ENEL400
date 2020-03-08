@@ -32,15 +32,17 @@ void drawScreen(MCUFRIEND_kbv tft); //initial screen draw
 
 void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for minesweeper.
 {
+  int difficulty = 100;
   int* button_states;
   int* previous_button_states = new int[6];
   button_states = controller.read_buttons();
   tft.setRotation(1);
   drawScreen(tft); // initial screen draw
   MineBox box(7, 11); //create instatce of MineBox
-  box.draw(WHITE, tft);
+  box.draw(WHITE, tft); //draws the box on the screen
   
-  box.pickMines(15);
+  box.pickMines(difficulty); // randomly picks spots for the mines.
+  box.drawMines(difficulty, tft, RED);
   
   while(1) // main game loop
   {
@@ -51,7 +53,6 @@ void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for 
     button_states = controller.read_buttons(); // update buttons_states
     
     box.resolve_inputs(previous_button_states, button_states, tft); // moves the selector on the screen
-    //handle clicking inputs
     
     //if(1){break;}
   }

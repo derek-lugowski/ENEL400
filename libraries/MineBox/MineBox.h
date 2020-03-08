@@ -13,7 +13,7 @@ class MineBox
   private:
     int x;
     int y;
-    
+    Position mines[100];
     
     
   public:
@@ -26,6 +26,8 @@ class MineBox
     void move(int i, MCUFRIEND_kbv tft);
     
     void pickMines(int amount);
+    
+    void drawMines(int amount, MCUFRIEND_kbv tft, int color);
 
 };
 

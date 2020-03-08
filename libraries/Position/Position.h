@@ -9,8 +9,8 @@ class Position
     int x;
     int y;
     
+    Position();
     Position(int xnumb, int ynumb);
-  
 };
 
 

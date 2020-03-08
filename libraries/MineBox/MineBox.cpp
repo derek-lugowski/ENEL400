@@ -3,6 +3,7 @@
 #include <MineBox.h>
 #include <MCUFRIEND_kbv.h>
 #include <Controller.h>
+#include <Position.h>
 
 #define BLACK 0x0000
 #define NAVY 0x000F
@@ -44,10 +45,6 @@ void MineBox::resolve_inputs(int* previous_buttons, int* buttons, MCUFRIEND_kbv 
     if(previous_buttons[i] != buttons[i] && buttons[i] == LOW)
     {
       move(i, tft);
-      
-      //draw(BLACK, tft);
-      //y--;
-      //draw(WHITE, tft);
     }
   }
 }
@@ -89,6 +86,29 @@ void MineBox::move(int i, MCUFRIEND_kbv tft)
       draw(BLACK, tft);
       x++;
       draw(WHITE, tft);
+    }
   }
+  //else if(i == 0)
+  //{
+    
+  //}
+}
+
+void MineBox::pickMines(int amount)
+{
+  randomSeed(analogRead(8));
+  for(int i = 0; i < amount; i++)
+  {
+    mines[i].x = int(random(0, 24));
+    mines[i].y = int(random(0, 16));
+  }
+  
+}
+
+void MineBox::drawMines(int amount, MCUFRIEND_kbv tft, int color)
+{
+  for(int i = 0; i < amount; i++)
+  {
+    tft.fillCircle(20*mines[i].x +10, 20*mines[i].y+10, 9, color);
   }
 }
