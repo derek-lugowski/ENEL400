@@ -8,19 +8,6 @@
 
 void Minesweeper(Controller controller, MCUFRIEND_kbv tft);
 
-//class Cursor{
-  
-  //public:
-    //int x;
-    //int y;
-    
-    //Cursor(int xi, int yi)
-    //{
-      //x = xi;
-      //y = yi;
-    //}
-    
-//}
 
 
 

@@ -3,6 +3,7 @@
 #include <Minesweeper.h>
 #include <Controller.h>
 #include <MCUFRIEND_kbv.h>
+#include <MineBox.h>
 
 #define BLACK 0x0000
 #define NAVY 0x000F
@@ -35,8 +36,8 @@ void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for 
   button_states = controller.read_buttons();
   tft.setRotation(1);
   drawScreen(tft);
-  //cursor Cursor(7, 11);
-  
+  Cursor cursor(7, 11);
+  cursor.draw(WHITE);
   while(1) // main game loop
   {
     
