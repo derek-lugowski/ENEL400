@@ -5,6 +5,7 @@
 
 #include <MCUFRIEND_kbv.h>
 #include <Controller.h>
+#include <Position.h>
 
 class MineBox
 {
@@ -12,6 +13,8 @@ class MineBox
   private:
     int x;
     int y;
+    
+    
     
   public:
     MineBox(int xi, int yi);
@@ -21,6 +24,8 @@ class MineBox
     void resolve_inputs(int* previous_buttons, int* buttons, MCUFRIEND_kbv);
     
     void move(int i, MCUFRIEND_kbv tft);
+    
+    void pickMines(int amount);
 
 };
 

@@ -40,6 +40,7 @@ void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for 
   MineBox box(7, 11); //create instatce of MineBox
   box.draw(WHITE, tft);
   
+  box.pickMines(15);
   
   while(1) // main game loop
   {
