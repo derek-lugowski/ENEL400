@@ -32,7 +32,8 @@ void drawScreen(MCUFRIEND_kbv tft); //initial screen draw
 
 void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for minesweeper.
 {
-  int difficulty = 100;
+  //Serial.println("begining minesweeper");
+  int difficulty = 50;
   int* button_states;
   int* previous_button_states = new int[6];
   button_states = controller.read_buttons();
@@ -42,7 +43,7 @@ void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for 
   box.draw(WHITE, tft); //draws the box on the screen
   
   box.pickMines(difficulty); // randomly picks spots for the mines.
-  box.drawMines(difficulty, tft, RED);
+  //box.drawMines(difficulty, tft, RED);
   
   while(1) // main game loop
   {
@@ -51,11 +52,17 @@ void Minesweeper(Controller controller, MCUFRIEND_kbv tft) //Main game loop for 
       previous_button_states[i] = button_states[i];
     }
     button_states = controller.read_buttons(); // update buttons_states
-    
-    box.resolve_inputs(previous_button_states, button_states, tft); // moves the selector on the screen
-    
-    //if(1){break;}
+    //Serial.println("about to call box.resolve_inputs");
+    if(box.resolve_inputs(previous_button_states, button_states, tft) == 1) // if(hit mine) this line also moves the cursor box on the screen and processes all inputs.
+      {
+        box.drawMines(tft, RED);
+        delay(3000);
+        break;//currently this will just end the loop exiting the game
+        // this should display gameover: give option to play again.
+      }
   }
+  tft.fillScreen(PINK);
+  return;
 }
 
 

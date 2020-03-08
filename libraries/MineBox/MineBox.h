@@ -5,7 +5,7 @@
 
 #include <MCUFRIEND_kbv.h>
 #include <Controller.h>
-#include <Position.h>
+#include <Block.h>
 
 class MineBox
 {
@@ -13,21 +13,28 @@ class MineBox
   private:
     int x;
     int y;
-    Position mines[100];
+    Block grid[24][16];
     
     
   public:
     MineBox(int xi, int yi);
     
+    void fill(int color, MCUFRIEND_kbv tft);
+    void fill(int xnew, int ynew, int color, MCUFRIEND_kbv tft);
+    
     void draw(int color, MCUFRIEND_kbv tft);
     
-    void resolve_inputs(int* previous_buttons, int* buttons, MCUFRIEND_kbv);
+    int resolve_inputs(int* previous_buttons, int* buttons, MCUFRIEND_kbv);
     
-    void move(int i, MCUFRIEND_kbv tft);
+    int move(int i, MCUFRIEND_kbv tft);
     
     void pickMines(int amount);
     
-    void drawMines(int amount, MCUFRIEND_kbv tft, int color);
+    void drawMines(MCUFRIEND_kbv tft, int color);
+    
+    int testBlock(int x, int y, MCUFRIEND_kbv tft);
+    
+    void drawFlag(MCUFRIEND_kbv tft);
 
 };
 

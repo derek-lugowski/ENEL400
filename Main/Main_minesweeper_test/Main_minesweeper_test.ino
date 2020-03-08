@@ -53,6 +53,7 @@ void setup() {
 }
 
 void loop() {
+  //Serial.println("calling Minesweeper");
   Minesweeper(controller, tft);
-  delay(1000000);
+  delay(100);
 }
