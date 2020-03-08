@@ -8,7 +8,7 @@ Controller::Controller()
   int buttons_state [6] = {LOW, LOW, LOW, LOW, LOW, LOW};
   int buttons_current_read[6] = {LOW, LOW, LOW, LOW, LOW, LOW};
   unsigned long lastDebounceTime[6] = {0, 0, 0, 0, 0, 0};
-  const int debounce_delay = 5;
+  const int debounce_delay = 20;
 }
 
 Controller::Controller(int A, int B, int U, int D, int L, int R)

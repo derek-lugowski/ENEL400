@@ -1,9 +1,12 @@
 //MineBox.h
 
-#ifndef CURSOR_INCLUDED
-#define CURSOR_INCLUDED
+#ifndef MINEBOX_INCLUDED
+#define MINEBOX_INCLUDED
 
-class Cursor
+#include <MCUFRIEND_kbv.h>
+#include <Controller.h>
+
+class MineBox
 {
   
   private:
@@ -11,7 +14,14 @@ class Cursor
     int y;
     
   public:
-    Cursor(int xi, int yi);
+    MineBox(int xi, int yi);
+    
+    void draw(int color, MCUFRIEND_kbv tft);
+    
+    void move(int* previous_buttons, int* buttons, MCUFRIEND_kbv);
+    
+    void move_draw(int i, MCUFRIEND_kbv tft);
+
 };
 
 
